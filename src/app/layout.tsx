@@ -25,9 +25,9 @@ export default function RootLayout({
 
 export function HeaderLayout() {
   return (
-    <header className={styles.header}>
-      <h1 className={gothic.className}>Note App</h1>
-      <nav className={styles.nav}>
+    <header>
+      <h1>Note App</h1>
+      <nav>
         <Link href="/contact">Contact</Link>
         <Link href="/about">About</Link>
         <Link href="/product">Products</Link>
