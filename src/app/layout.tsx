@@ -21,16 +21,19 @@ export default function RootLayout({
       <body className={inter.className}>
         <header className="flex justify-between mt-5 items-center pb-3 border-black border-b-2">
           <h1 className="text-3xl font-bold ml-20">
-            <Link href="/home">Nail's Blog</Link>
+            <Link href="/">Nail's Blog</Link>
           </h1>
           <nav className="mr-20 space-x-3">
-            <Link href="/home">home</Link>
+            <Link href="/">home</Link>
             <Link href="/about">about</Link>
             <Link href="/posts">posts</Link>
             <Link href="/contact">contact</Link>
           </nav>
         </header>
         {children}
+        <footer className="  bg-gray-500  mt-10 mx-20 font-bold  text-center">
+          Don't Forget To CODE your Dream | All Right Reserved.
+        </footer>
       </body>
     </html>
   );
