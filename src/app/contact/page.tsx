@@ -7,23 +7,27 @@ export default function ContactPage() {
     <div className="flex-col mx-auto text-center w-1/3">
       <h1 className="font-bold text-2xl">Contact me</h1>
       <p>c9010912@gmail.com</p>
-      <div className="flex justify-center items-center space-x-4">
-        <FaGithub />
-        <SiGmail />
-        <FaYoutube />
+      <div className="flex justify-center items-center space-x-4 mt-4">
+        <FaGithub size="40" />
+        <SiGmail size="40" />
+        <FaYoutube size="40" />
       </div>
-      <h1 className="font-bold text-2xl"> Or Send me an Email</h1>
+      <h1 className="font-bold text-2xl mt-10"> Or Send me an Email</h1>
       <form
         name="SendEmail"
-        className=" bg-slate-700 rounded-lg text-left p-3 text-white font-bold"
+        className="flex flex-col mt-10 bg-slate-700 rounded-lg text-left p-3 text-white font-bold"
       >
         <p>Your Email</p>
         <input type="text" name="yourEmail" />
         <p>Subject</p>
         <input type="text" name="subject" />
         <p>Message</p>
-        <textarea name="message"></textarea>
-        <button type="submit" value="Submit" />
+        <textarea name="message" className="h-80" />
+        <input
+          type="submit"
+          value="Submit"
+          className=" font-sans bg-yellow-300 mt-1"
+        />
       </form>
     </div>
   );
