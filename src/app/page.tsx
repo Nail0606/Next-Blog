@@ -4,7 +4,7 @@ import Link from "next/link";
 import MainCarousel from "@/components/MainCarousel";
 import Post from "@/components/Post";
 
-export default function AA() {
+export default function HomePage() {
   const testNum = [1, 2, 3, 4, 5];
 
   return (
