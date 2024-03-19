@@ -18,15 +18,15 @@ export default function ContactPage() {
         className="flex flex-col mt-10 bg-slate-700 rounded-lg text-left p-3 text-white font-bold"
       >
         <p>Your Email</p>
-        <input type="text" name="yourEmail" />
+        <input type="text" name="yourEmail" className="text-black" />
         <p>Subject</p>
-        <input type="text" name="subject" />
+        <input type="text" name="subject" className="text-black" />
         <p>Message</p>
-        <textarea name="message" className="h-80" />
+        <textarea name="message" className="h-80 text-black" />
         <input
           type="submit"
           value="Submit"
-          className=" font-sans bg-yellow-300 mt-1"
+          className=" font-sans bg-yellow-300 mt-1 text-black"
         />
       </form>
     </div>
