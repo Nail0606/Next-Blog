@@ -4,8 +4,30 @@ import Link from "next/link";
 import MainCarousel from "@/components/MainCarousel";
 import Post from "@/components/Post";
 
-export default function HomePage() {
-  const testNum = [1, 2, 3, 4, 5];
+interface PostType {
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  path: string;
+  featured: boolean;
+}
+
+export default async function HomePage() {
+  // const mockPostData = require("/public/posts/posts.json");
+  // console.log(mockPostData);
+
+  const testDataFetch = async () => {
+    return await fetch("http://localhost:3000/posts/posts.json")
+      .then((response) => response.json())
+      .then((data) => {
+        return data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const mockPostData: PostType[] = await testDataFetch();
 
   return (
     <div className="flex-col">
@@ -24,8 +46,8 @@ export default function HomePage() {
       <div className="mx-20">
         <h1 className="font-bold text-3xl">Featured Posts</h1>
         <div className="grid grid-cols-3 gap-4">
-          {testNum.map(() => {
-            return <Post />;
+          {mockPostData.map((post, index) => {
+            return <Post data={post} key={`post ${index}`} />;
           })}
         </div>
       </div>
