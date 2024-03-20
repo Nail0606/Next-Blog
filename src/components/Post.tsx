@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import postTestImage from "../../public/images/review-2023.png";
 import Image from "next/image";
 
 interface PostType {
@@ -17,16 +16,24 @@ interface Props {
 }
 
 export default function FeaturedPost({ data }: Props) {
-  console.log(data);
   return (
-    <div className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl">
-      <Link href={`/${data?.path}`}>
-        <Image src={postTestImage} alt="포스트이미지" />
-        <p>{data.date}</p>
-        <h1 className="font-bold">{data.title}</h1>
-        <p>{data.description}</p>
-        <p>{data.category}</p>
-      </Link>
-    </div>
+    data && (
+      <div className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl">
+        <Link href={`/posts/${data.path}`}>
+          <Image
+            src={`/images/${data.path}.png`}
+            alt="포스트이미지"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
+          />
+          <p>{data.date}</p>
+          <h1 className="font-bold">{data.title}</h1>
+          <p>{data.description}</p>
+          <p>{data.category}</p>
+        </Link>
+      </div>
+    )
   );
 }
