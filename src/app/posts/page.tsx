@@ -1,5 +1,7 @@
 import Post from "@/components/Post";
 import { PostType } from "../page";
+import CategorySelect from "@/components/CategorySelect";
+import Posts from "@/components/Posts";
 
 export default async function PostsPage() {
   const testDataFetch = async () => {
@@ -16,21 +18,7 @@ export default async function PostsPage() {
 
   return (
     <div className="flex justify-center mt-10 ">
-      <div className="grid grid-cols-3 gap-4 w-2/3 ">
-        {mockPostData.map((post, index) => {
-          return <Post data={post} key={`posts ${index}`} />;
-        })}
-      </div>
-      <div className="ml-28">
-        <h1 className="border-solid border-b-2 border-black font-bold">
-          Category
-        </h1>
-        <p>All Posts</p>
-        <p>My story</p>
-        <p>FrontEnd</p>
-        <p>BackEnd</p>
-        <p>javascript</p>
-      </div>
+      <Posts postData={mockPostData} />
     </div>
   );
 }
