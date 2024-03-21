@@ -1,13 +1,24 @@
 import Post from "@/components/Post";
+import { PostType } from "../page";
 
 export default async function PostsPage() {
-  const testArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const testDataFetch = async () => {
+    return await fetch("http://localhost:3000/posts/posts.json")
+      .then((response) => response.json())
+      .then((data) => {
+        return data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const mockPostData: PostType[] = await testDataFetch();
 
   return (
     <div className="flex justify-center mt-10 ">
       <div className="grid grid-cols-3 gap-4 w-2/3 ">
-        {testArr.map(() => {
-          return <Post />;
+        {mockPostData.map((post, index) => {
+          return <Post data={post} key={`posts ${index}`} />;
         })}
       </div>
       <div className="ml-28">
