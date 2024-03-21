@@ -46,8 +46,8 @@ export default function MainCarousel({ youMayLikeArray }: Props) {
         //dotListClass="custom-dot-list-style"
         itemClass="p-1"
       >
-        {youMayLikeArray.map((post) => {
-          return <Post data={post} />;
+        {youMayLikeArray.map((post, index) => {
+          return <Post data={post} key={`yml ${index}`} />;
         })}
       </Carousel>
     )
