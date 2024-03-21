@@ -4,7 +4,7 @@ import Link from "next/link";
 import MainCarousel from "@/components/MainCarousel";
 import Post from "@/components/Post";
 
-interface PostType {
+export interface PostType {
   title: string;
   description: string;
   date: string;
@@ -28,6 +28,8 @@ export default async function HomePage() {
       });
   };
   const mockPostData: PostType[] = await testDataFetch();
+  const featuredPostArray = mockPostData.filter((post) => post.featured);
+  const youMayLikeArray = mockPostData.filter((post) => !post.featured);
 
   return (
     <div className="flex-col">
@@ -46,14 +48,14 @@ export default async function HomePage() {
       <div className="mx-20">
         <h1 className="font-bold text-3xl">Featured Posts</h1>
         <div className="grid grid-cols-3 gap-4">
-          {mockPostData.map((post, index) => {
+          {featuredPostArray.map((post, index) => {
             return <Post data={post} key={`post ${index}`} />;
           })}
         </div>
       </div>
       <div className="mx-20 mt-5">
         <h1 className="font-bold text-3xl">You May Like</h1>
-        <MainCarousel></MainCarousel>
+        <MainCarousel youMayLikeArray={youMayLikeArray} />
       </div>
     </div>
   );
