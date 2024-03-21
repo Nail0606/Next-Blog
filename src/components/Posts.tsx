@@ -32,6 +32,7 @@ export default function Posts({ postData }: Props) {
         })}
       </div>
       <CategorySelect
+        selectedCategory={seletedCategory}
         categoryArray={categoryArray}
         setSelectedCategory={setSelectedCategory}
       />

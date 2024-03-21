@@ -3,11 +3,13 @@ import { useState } from "react";
 
 interface Props {
   categoryArray: string[];
+  selectedCategory: number;
   setSelectedCategory: (categoryIndex: number) => void;
 }
 export default function CategorySelect({
   categoryArray,
   setSelectedCategory,
+  selectedCategory,
 }: Props) {
   return (
     <div className="ml-28">
@@ -21,7 +23,9 @@ export default function CategorySelect({
             onClick={() => {
               setSelectedCategory(index);
             }}
-            className="cursor-pointer hover:text-blue-300"
+            className={`cursor-pointer hover:text-blue-300 ${
+              selectedCategory === index ? "text-blue-300" : null
+            }`}
           >
             {category}
           </p>
